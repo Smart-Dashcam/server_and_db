@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>SIUUUUUUUU</title>
+    </head>
+    <body>
+        감자
+    </body>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        var Table = [];
+        var table_Edit = "";
+        var table_Delete = "";
+    
+        $(document).ready(function () {
+            $.ajax({
+                url: '/pymongo_db',
+                dataType: 'json',
+                type: 'POST',
+                success: function (result) {
+                    if (result) {
+                        var totalData = result.result.length;    // 총 데이터 수
+                        table_Edit += '<button type="button" onclick="location.href="" style="border: 1px solid skyblue; background-color: white; color:skyblue;">수정</button>';
+                        table_Delete += '<button type="button" onclick="location.href="" style="margin-left: 10px; border: 1px solid skyblue; background-color: white; color:skyblue;">삭제</button>';
+                        
+                        for (var num = 0; num < totalData; num ++)
+                            Table[num] += '<tr>';
+                            Table[num] += '<th style="font-size:20px; font-weight:bold;">이름</th>';
+                            Table[num] += '<td>' + result.result[num].name + '</td>';
+                            Table[num] += '</tr><tr>';
+                            Table[num] += '<th style="font-size:20px; font-weight:bold;">날짜</th>';
+                            Table[num] += '<td>' + dt_time.year+'-'+dt_time.month+'-'+dt_time.day + '</td>';
+                            Table[num] += '</tr><tr>';
+                            Table[num] += '<th style="font-size:20px; font-weight:bold;">시간</th>';
+                            Table[num] += '<td>' + dt_time.hour+'-'+dt_time.minute+'-'+dt_time.second + '</td>';
+                            Table[num] += '</tr><tr>';
+                            Table[num] += '<th style="font-size:20px; font-weight:bold;">위도</th>';
+                            Table[num] += '<td>' + result.result[num].lat + '</td>';
+                            Table[num] += '</tr>';
+                            Table[num] += '<th style="font-size:20px; font-weight:bold;">경도</th>';
+                            Table[num] += '<td>' + result.result[num].lng + '</td>';
+                            Table[num] += '</tr>';
+    
+                        $(table_edit).html(table_Edit);
+                        table_Edit = 0;
+    
+                        $(table_delete).html(table_Delete);
+                        table_Delete = 0;
+    
+                        $(database_Table).empty();
+                        $(database_Table).append(person_Table[num]);
+                        person_Table[num] = 0;
+                    }
+                }
+            })
+        })    
+    </script>
+</html>

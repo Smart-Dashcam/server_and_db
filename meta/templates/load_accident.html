@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
+</head>
+<body>
+    <div class="board_wrap">
+        <div class="board_title">
+            <strong>사고 기록 DB</strong>
+            <p></p>
+        </div>
+        <div class="board_list_wrap">
+            <div class="board_list">
+                <div class="top">
+                    <div class="name">이름</div>
+                    <div class="date">날짜</div>
+                    <div class="time">시간</div>
+                    <div class="lat">위도</div>
+                    <div class="lng">경도</div>
+                </div>
+                {% for row in result %}
+                <div>
+                    <div class="name">{{row['name']}}</div>
+                    <div class="date">{{row['date']}}</div>
+                    <div class="time">{{row['time']}}</div>
+                    <div class="lat">{{row['lat']}}</div>
+                    <div class="lng">{{row['lng']}}</div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="board_page">
+                <a href="#" class="bt first"><<</a>
+                <a href="#" class="bt prev"><</a>
+                <a href="#" class="num on">1</a>
+                <a href="#" class="bt next">></a>
+                <a href="#" class="bt last">>></a>
+            </div>
+            <div class="bt_wrap">
+                <a href="/load_guardian" class="on">보호자 DB 보기</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

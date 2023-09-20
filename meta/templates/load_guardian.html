@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
+</head>
+<body>
+    <div class="board_wrap">
+        <div class="board_title">
+            <strong>보호자 DB</strong>
+            <p></p>
+        </div>
+        <div class="board_list_wrap">
+            <div class="board_list">
+                <div class="top">
+                    <div class="name_g">이름</div>
+                    <div class="guardian_name">보호자 이름</div>
+                    <div class="guardian_number">번호</div>
+                </div>
+                {% for row in result %}
+                <div>
+                    <div class="name_g">{{row['name']}}</div>
+                    <div class="guardian_name">{{row['guardian_name']}}</div>
+                    <div class="guardian_number">{{row['guardian_number']}}</div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="board_page">
+                <a href="#" class="bt first"><<</a>
+                <a href="#" class="bt prev"><</a>
+                <a href="#" class="num on">1</a>
+                <a href="#" class="bt next">></a>
+                <a href="#" class="bt last">>></a>
+            </div>
+            <div class="bt_wrap">
+                <a href="/write" class="on">보호자 입력</a>
+                <!--<a href="#">수정</a>-->
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

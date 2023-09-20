@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://kit.fontawesome.com/51db22a717.js" crossorigin="anonymous"></script>
+    <title>SMART DASHCAM</title>
+</head>
+<body>
+    <header class="top-header">
+        <nav class="top-nav">
+            <ul>
+                <li><a href="#">관리자</a></li>
+                <li><a href="#">설정</a></li>
+                <li><a href="#"><i class="fas fa-bars"></i></a></li>
+            </ul>
+            <div class="profile_img_wrap">
+                <img src="static/videos/mark.png">
+            </div>
+        </nav>
+    </header>
+    <section class="main-section">
+        <div class="logo-wrap">
+            <a href="#"><img src="static/videos/mark.png"></a>
+            
+        </div>
+        <div><font size=5 >서버 페이지</font></div>
+        <div class="searchbar-wrap">
+            <i class="fas fa-search"></i>
+            <input class="search-input" type="text"/>
+            <i class="fas fa-keyboard"></i>
+        </div> 
+        <div class="buttons">
+            <button onclick="location.href='/video_list'">게시판</button>
+            <button onclick="location.href='/load_accident'">Database</button>
+        </div>
+        <div class="now-lang">
+            <span>SMART DASHCAM </span><a href="#">aka HelMet</a>
+        </div>
+    </section>
+    <footer>
+        <div class="country">
+            <span>대한민국</span>
+        </div>
+        <div class="foot-links-wrap">
+            <div class="foot-links-wrap-right">
+                <ul>
+                    <li><a href="#">광고</a></li>
+                    <li><a href="#">비즈니스</a></li>
+                    <li><a href="#">Meta 정보</a></li>
+                </ul>
+            </div>
+            <div class="foot-links-wrap-left">
+                <ul>
+                    <li><a href="#">개인정보</a></li>
+                    <li><a href="#">약관</a></li>
+                    <li><a href="#">설정</a></li>
+                </ul>
+            </div>
+            </div>
+            
+        </div>
+    </footer>
+</body>
+</html>

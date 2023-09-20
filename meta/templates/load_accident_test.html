@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>SIUUUUUUUU</title>
+    </head>
+    <body>
+        <script>
+            // $(document).ready(function () {
+            //     show_accident_list();
+            // });
+            // function show_accident_list(){
+            //     $.ajax({
+            //         type: "GET",
+            //         url: "{{ url_for('main.accident_table_db') }}",
+            //         data: {},
+            //         success: function (response){
+            //             print("정상출력")
+            //             let result = response['all_result']
+            //             for (let i = 0; i < result.length; i++){
+            //                 let name = result[i]['name']
+            //                 let date = result[i]['date']
+            //                 let time = result[i]['time']
+            //                 let lat = result[i]['lat']
+            //                 let lng = result[i]['lng']
+        
+            //                 let temp_html = []
+            //                 temp_html += '<tr>'
+            //                 temp_html += '<td>${name}</td>'
+            //                 temp_html += '<td>${date}</td>'
+            //                 temp_html += '<td>${time}</td>'
+            //                 temp_html += '<td>${lat}</td>'
+            //                 temp_html += '<td>${lng}</td>'
+            //                 temp_html += '</tr>'
+            //                 $('database_Table').append(temp_html)
+            //             }
+        
+            //         }
+            //     })
+            // }
+        </script>
+        <div>
+            <table class="table">
+                    <thead id="database_Table"></thead>
+                </table>
+        </div>
+
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for row in result %}
+                    <tr>
+                        <td>{{row['name']}}</td>
+                        <td>{{row['date']}}</td>
+                        <td>{{row['time']}}</td>
+                        <td>{{row['lat']}}</td>
+                        <td>{{row['lng']}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+          <h5>{{result[0].name}}</h5>
+        </div>
+    </body>
+</html>
